@@ -60,6 +60,9 @@
 ## TEAMS
 
 ⭐Stars Trix™
+Mine Cuta
+Hiroke Ninky
+Cerry
 
 ## LICENSE
 Website is Licensed under the [MIT License](https://github.com/HirokeNinky/HirokeNinky/blob/main/LICENSE)
