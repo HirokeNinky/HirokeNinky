@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ninky.starstrix.my.id/">
-    <img src="https://ninky.starstrix.my.id/assets/hiroke/logo-hiroke.png" alt="Banner">
+    <img src="https://ninky.starstrix.my.id/assets/hiroke/hiroke.png" alt="Banner">
   </a>
 </p>
 <h1 align="center">Hi, I'm <a href="http://ninky.starstrix.my.id/">Hiroke Ninky</a>!</h1>
