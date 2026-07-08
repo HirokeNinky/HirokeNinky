@@ -1,0 +1,33 @@
+{
+  "name": "HIROKE",
+  "tagline": "Half in the light, half in the abyss.",
+  "bio": "A hybrid entity torn between two worlds — one half demon, born of static and shadow; one half machine, raised on syntax and light. By night, Hiroke streams from the Rift. By day, she ships code from the mortal plane.",
+  "youtubeUrl": "https://www.youtube.com/@hiroke_ninky",
+  "tiktokUrl": "https://www.tiktok.com/@hiroke.ninky",
+  "xUrl": "https://x.com/hiroke_ninky",
+  "instagramUrl": "https://instagram.com/hiroke_ninky",
+  "discordUrl": "https://discord.gg/WkAjbEZZsw",
+  "githubUrl": "https://github.com/HirokeNinky",
+  "komisiUrl": "https://discord.gg/VgGttc9DJ4",
+  "merchUrl": "#",
+  "donateUrl": "https://bagibagi.co/HirokeNinky",
+  "announcement": "Next stream: the Rift opens Friday 20:00 WIB — full schedule below.",
+  "videoId": "FXhQ9bmTkds",
+  "contactEmail": "hirokeninky@gmail.com",
+  "customLinks": [
+    {
+      "id": "cl-mrbo8vyl",
+      "icon": "🔗",
+      "title": "Nehaichi",
+      "desc": "Nehaichi Discord bot for your server.",
+      "url": "https://nehaichi.minecuta.com/en"
+    },
+    {
+      "id": "cl-mrboaaw5",
+      "icon": "☲",
+      "title": "QRCode",
+      "desc": "Support Nehaichi for Hiroke Ninky & MineCuta.",
+      "url": "https://minecuta.com/qris"
+    }
+  ]
+}

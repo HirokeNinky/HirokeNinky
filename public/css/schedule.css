@@ -1,0 +1,30 @@
+.countdown-section{ padding:40px 0 70px; }
+.countdown-card{
+  border:1px solid rgba(255,255,255,.1); padding:44px clamp(20px,5vw,60px); text-align:center;
+  background:linear-gradient(160deg, rgba(139,47,209,.12), rgba(47,232,212,.06));
+  position:relative; overflow:hidden;
+}
+.countdown-card::before{
+  content:''; position:absolute; inset:0; background:var(--seam-grad); opacity:.5; height:2px; top:0;
+}
+.countdown-card h2{ font-family:var(--f-display); font-size:clamp(1.5rem,3vw,2.2rem); margin:10px 0 30px; }
+.countdown-grid{ display:flex; justify-content:center; gap:18px; margin-bottom:34px; flex-wrap:wrap; }
+.cd-box{
+  min-width:86px; padding:18px 10px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.25);
+}
+.cd-box span{ display:block; font-family:var(--f-tech); font-size:2rem; font-weight:700; background:var(--seam-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.cd-box label{ font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--ash-dim); }
+
+.week-section{ padding:20px 0 100px; }
+.week-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:12px; margin-top:30px; }
+.day-card{
+  border:1px solid rgba(255,255,255,.08); padding:18px 12px; min-height:150px; display:flex; flex-direction:column; gap:8px;
+  background:rgba(255,255,255,.02); transition:border-color .3s ease, transform .3s ease;
+}
+.day-card:hover{ transform:translateY(-4px); border-color:var(--horn); }
+.day-card.today{ border-color:var(--ember); background:linear-gradient(160deg, rgba(230,57,80,.14), transparent); }
+.day-card .dname{ font-family:var(--f-tech); font-size:.65rem; letter-spacing:.15em; color:var(--ash-dim); text-transform:uppercase; }
+.day-card .dtitle{ font-family:var(--f-display); font-size:.95rem; margin-top:auto; }
+.day-card .dtime{ font-size:.72rem; color:var(--circuit); font-family:var(--f-tech); }
+.day-card.off .dtitle{ color:var(--ash-faint); }
+@media (max-width:900px){ .week-grid{ grid-template-columns:repeat(2,1fr); } }

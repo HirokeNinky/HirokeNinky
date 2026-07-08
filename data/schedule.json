@@ -1,0 +1,44 @@
+[
+  {
+    "day": 1,
+    "title": "Dev Stream: Coding Santai",
+    "time": "20:00",
+    "on": false
+  },
+  {
+    "day": 2,
+    "title": "Off Day — Recharge",
+    "time": "",
+    "on": false
+  },
+  {
+    "day": 3,
+    "title": "VTuber Variety Night",
+    "time": "21:00",
+    "on": false
+  },
+  {
+    "day": 4,
+    "title": "Off Day — Recharge",
+    "time": "",
+    "on": false
+  },
+  {
+    "day": 5,
+    "title": "Karaoke & Chat Bareng",
+    "time": "20:00",
+    "on": false
+  },
+  {
+    "day": 6,
+    "title": "Collab / Special Event",
+    "time": "19:00",
+    "on": false
+  },
+  {
+    "day": 0,
+    "title": "Freelance Q&A + Zatsudan",
+    "time": "18:00",
+    "on": false
+  }
+]
