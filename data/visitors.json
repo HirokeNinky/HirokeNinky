@@ -1,0 +1,79 @@
+[
+  {
+    "page": "home",
+    "ts": 1783484999955,
+    "ref": "http://localhost:3000/",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "admin",
+    "ts": 1783485000036,
+    "ref": "http://localhost:3000/admin-login.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "admin-dashboard",
+    "ts": 1783485013555,
+    "ref": "http://localhost:3000/admin-dashboard.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "home",
+    "ts": 1783485060267,
+    "ref": "http://localhost:3000/",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "about",
+    "ts": 1783485065869,
+    "ref": "http://localhost:3000/about.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "home",
+    "ts": 1783485081479,
+    "ref": "http://localhost:3000/index.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "home",
+    "ts": 1783485332368,
+    "ref": "http://localhost:3000/index.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "about",
+    "ts": 1783485335598,
+    "ref": "http://localhost:3000/about.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "home",
+    "ts": 1783485346517,
+    "ref": "http://localhost:3000/index.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "social",
+    "ts": 1783485351218,
+    "ref": "http://localhost:3000/social.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  },
+  {
+    "page": "social",
+    "ts": 1783485367902,
+    "ref": "http://localhost:3000/social.html",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "ip": "::1"
+  }
+]
