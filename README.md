@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://ninky.starstrix.my.id/">
-    <img src="https://ninky.starstrix.my.id/assets/hiroke/hiroke.png" alt="Banner">
+  <a href="https://hiroke.starstrix.my.id/">
+    <img src="https://hiroke.starstrix.my.id/assets/hiroke/hiroke.png" alt="Banner">
   </a>
 </p>
-<h1 align="center">Hi, I'm <a href="http://ninky.starstrix.my.id/">Hiroke Ninky</a>!</h1>
+<h1 align="center">Hi, I'm <a href="https://hiroke.starstrix.my.id/">Hiroke Ninky</a>!</h1>
 <h3 align="center">Welcome to my GitHub profile </h3>
 <p align="center">❤ I'm very interested on Discord bot developing & fivem server.</p>
 
