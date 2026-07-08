@@ -35,7 +35,7 @@
    <img align="center" height="140px" src="https://github-readme-stats.vercel.app/api?username=HirokeNinky&hide=issues&count_private=true&show_icons=true&title_color=8B64FF&icon_color=8B64FF&theme=dracula" alt="Hiroke's GitHub stats" />
    </a>
    <a href="https://github.com/HirokeNinky/">
-   <img align="center" height="140px" src="https://github-readme-stats.vercel.app/api/wakatime?username=HirokeNinky&hide=issues&count_private=true&show_icons=true&title_color=8B64FF&icon_color=8B64FF&theme=dracula" alt="Hiroke's GitHub statss" />
+   <img align="center" height="140px" src="https://github-readme-stats.vercel.app/api/wakatime?username=HirokeNinky&hide=issues&count_private=true&show_icons=true&title_color=8B64FF&icon_color=8B64FF&theme=dracula" alt="Hiroke's GitHub stats" />
    </a>
 </p>
 
