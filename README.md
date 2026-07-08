@@ -69,9 +69,8 @@ Website is Licensed under the [MIT License](https://github.com/HirokeNinky/Hirok
 
 ## CONTRIBUTION
 <p align="center">
-  <strong><a href="https://ninky.starstrix.my.id">Official Website!</a></strong> |
+  <strong><a href="https://hiroke.starstrix.my.id">Official Website!</a></strong> |
   <strong><a href="https://x.com/Hiroke_Ninky">Official Twitter!</a></strong>  |
   <strong><a href="https://bagibagi.co/HirokeNinky">Support me!</a></strong>  |
-  <strong><a href="https://ninky.starstrix.my.id/qrcode.html">QRCode!</a></strong>  |
   <strong><a href="https://discord.gg/WkAjbEZZsw">Join Discord!</a></strong>  
 </p>
