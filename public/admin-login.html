@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Panel Login — HIROKE NINKY</title>
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="admin" class="admin-login-body">
+
+  <div class="login-wrap">
+    <div class="login-bg"></div>
+    <div class="login-card">
+      <a href="index.html" class="login-brand">
+        <img src="assets/logo.png" alt="Hiroke Ninky">
+        <span>HIROKE CONTROL PANEL</span>
+      </a>
+      <p class="login-sub">Gerbang khusus penjaga rift. Masuk untuk mengelola situs.</p>
+
+      <form id="login-form" autocomplete="off">
+        <label>Username
+          <input type="text" id="login-user" placeholder="hiroke" required>
+        </label>
+        <label>Password
+          <input type="password" id="login-pass" placeholder="••••••••" required>
+        </label>
+        <div id="login-error" class="login-error" hidden></div>
+        <button type="submit" class="btn solid full">Buka Rift</button>
+      </form>
+
+      <p class="login-hint">Demo default → user: <code>hiroke</code> · pass: <code>demonKing777</code><br>Ganti kredensial ini setelah login pertama.</p>
+      <a class="login-back" href="index.html">&larr; Kembali ke situs utama</a>
+    </div>
+  </div>
+
+<script src="js/common.js"></script>
+<script src="js/admin-login.js"></script>
+</body>
+</html>
