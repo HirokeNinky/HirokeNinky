@@ -1,0 +1,454 @@
+/* ==========================================================================
+   HIROKE NINKY — "ONI-TECH" THEME
+   A fusion identity: Demonic sigils x Javanese parang/batik motifs x
+   Japanese torii/enso lines x futuristic neon-glass UI.
+   This file loads AFTER all page-specific stylesheets and re-skins them.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+JP:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  /* Core void */
+  --on-void:        #050308;
+  --on-void-2:      #0b0710;
+  --on-panel:       rgba(18, 12, 24, 0.62);
+  --on-panel-solid: #120a17;
+  --on-border:      rgba(255, 205, 130, 0.14);
+
+  /* Fusion accents */
+  --on-crimson:     #ff2d55;
+  --on-crimson-2:   #ad0f2c;
+  --on-gold:        #f2b957;
+  --on-gold-2:      #ffe8b0;
+  --on-purple:      #8b5cf6;
+  --on-cyan:        #33e8ff;
+
+  --on-text:        #f4ecf8;
+  --on-text-dim:    rgba(244, 236, 248, 0.66);
+  --on-text-faint:  rgba(244, 236, 248, 0.4);
+
+  --on-font-display: 'Cinzel Decorative', 'Noto Serif JP', serif;
+  --on-font-jp:       'Noto Serif JP', serif;
+  --on-font-body:     'Inter', 'Segoe UI', sans-serif;
+  --on-font-mono:     'JetBrains Mono', monospace;
+
+  --on-glow-crimson: 0 0 24px rgba(255, 45, 85, 0.45);
+  --on-glow-gold:    0 0 24px rgba(242, 185, 87, 0.4);
+  --on-glow-purple:  0 0 28px rgba(139, 92, 246, 0.4);
+  --on-radius: 20px;
+}
+
+/* Force everything into the void, regardless of page-specific bg rules */
+html{ background: var(--on-void); scroll-behavior: smooth; }
+body{
+  background: var(--on-void) !important;
+  color: var(--on-text) !important;
+  font-family: var(--on-font-body) !important;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection{ background: var(--on-crimson); color: #fff; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar{ width: 10px; }
+::-webkit-scrollbar-track{ background: var(--on-void-2); }
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--on-crimson), var(--on-purple));
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   BACKDROP LAYERS — sigils, parang stripes, torii lines, ember canvas
+   ========================================================================== */
+.on-backdrop{
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+  background: var(--on-void);
+  overflow: hidden;
+}
+
+/* deep radial auras */
+.on-backdrop::before{
+  content:'';
+  position:absolute; inset:-20%;
+  background:
+    radial-gradient(ellipse 900px 600px at 12% 8%, rgba(255,45,85,0.16), transparent 60%),
+    radial-gradient(ellipse 800px 700px at 92% 18%, rgba(139,92,246,0.16), transparent 60%),
+    radial-gradient(ellipse 900px 800px at 50% 100%, rgba(242,185,87,0.10), transparent 65%);
+  animation: on-aura-drift 22s ease-in-out infinite alternate;
+}
+@keyframes on-aura-drift{
+  0%{ transform: translate3d(0,0,0) scale(1); }
+  100%{ transform: translate3d(-2%, 2%, 0) scale(1.06); }
+}
+
+/* Javanese parang diagonal weave */
+.on-backdrop::after{
+  content:'';
+  position:absolute; inset:0;
+  opacity:.05;
+  background-image: repeating-linear-gradient(45deg,
+      rgba(242,185,87,0.9) 0px, rgba(242,185,87,0.9) 2px,
+      transparent 2px, transparent 34px),
+    repeating-linear-gradient(-45deg,
+      rgba(255,45,85,0.7) 0px, rgba(255,45,85,0.7) 2px,
+      transparent 2px, transparent 34px);
+  mix-blend-mode: screen;
+}
+
+/* Symbol tile layer: enso circle + torii + sigil + kanji, as one SVG tile */
+.on-symbol-layer{
+  position:absolute; inset:0;
+  opacity:.05;
+  background-repeat: repeat;
+  background-size: 420px 420px;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='%23f2b957' stroke-width='1.4'%3E%3Ccircle cx='70' cy='70' r='46' stroke-dasharray='4 7'/%3E%3Cpath d='M230 40 L230 130 M205 55 L255 55 M195 60 Q230 20 265 60 M212 130 Q205 150 190 155 M248 130 Q255 150 270 155'/%3E%3Cpath d='M40 250 L100 250 L100 210 M40 210 L40 320 L100 320'/%3E%3Ccircle cx='320' cy='300' r='34'/%3E%3Cpath d='M296 276 L344 324 M344 276 L296 324'/%3E%3Cpath d='M150 330 L170 300 L190 330 L180 360 L160 360 Z'/%3E%3Ctext x='330' y='90' font-family='serif' font-size='34' fill='%23ff2d55' stroke='none' opacity='0.8'%3E鬼%3C/text%3E%3Ctext x='30' y='400' font-family='serif' font-size='26' fill='%238b5cf6' stroke='none' opacity='0.75'%3E魂%3C/text%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Ember / rune particle canvas, drawn by theme.js */
+#on-ember-canvas{
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  opacity: .8;
+}
+
+/* Fine scanline sheen for the futuristic layer */
+.on-scanlines{
+  position: fixed; inset:0; z-index: -3; pointer-events:none;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 3px);
+  mix-blend-mode: overlay;
+  opacity:.5;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, .gradient-text, .join-title, .profile-name{
+  font-family: var(--on-font-display) !important;
+  letter-spacing: .02em;
+}
+
+.on-eyebrow{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family: var(--on-font-mono);
+  font-size:.72rem; letter-spacing:.28em; text-transform:uppercase;
+  color: var(--on-gold);
+  padding: .35rem .9rem;
+  border: 1px solid var(--on-border);
+  border-radius: 999px;
+  background: rgba(242,185,87,0.06);
+}
+.on-eyebrow i{ color: var(--on-crimson); }
+
+.on-jp{ font-family: var(--on-font-jp); }
+
+/* Hero title gets the crimson/gold ember gradient + glow */
+.hero-content h1,
+.hero-content .highlight{
+  background: linear-gradient(100deg, var(--on-gold-2) 0%, var(--on-gold) 22%, var(--on-crimson) 55%, var(--on-purple) 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px rgba(255,45,85,0.35));
+  animation: on-shimmer 6s linear infinite;
+  background-size: 220% auto;
+}
+@keyframes on-shimmer{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 200% 50%; }
+}
+
+.gradient-text{
+  background: linear-gradient(180deg, #ffffff 0%, var(--on-gold) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ==========================================================================
+   HEADER / NAV
+   ========================================================================== */
+.header{
+  background: linear-gradient(180deg, rgba(5,3,8,0.85), rgba(5,3,8,0)) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid transparent;
+}
+.header.scrolled{
+  background: rgba(8,5,12,0.82) !important;
+  border-bottom: 1px solid var(--on-border);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 1px 0 rgba(242,185,87,0.15) !important;
+}
+
+.logo-image{
+  box-shadow: 0 0 0 2px rgba(242,185,87,0.5), var(--on-glow-crimson);
+}
+
+.logo span{
+  font-family: var(--on-font-display) !important;
+  background: linear-gradient(90deg, var(--on-gold-2), var(--on-gold));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.nav-links a{
+  background: rgba(18,10,20,0.55) !important;
+  color: var(--on-gold-2) !important;
+  border: 1px solid var(--on-border);
+  text-transform: none !important;
+  font-family: var(--on-font-mono) !important;
+  letter-spacing: .04em !important;
+  font-weight: 500 !important;
+}
+.nav-links a::after{
+  background: linear-gradient(120deg, var(--on-crimson-2), var(--on-crimson) 45%, var(--on-gold) 100%) !important;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.nav-links a:hover::after{ opacity: 1; }
+.nav-links a:hover{ color: #fff0da !important; box-shadow: var(--on-glow-crimson); }
+body.dark-mode .nav-links a{ color: var(--on-gold-2) !important; }
+
+.theme-toggle, .language-selector .menu-item a{
+  background: rgba(18,10,20,0.55) !important;
+  border: 1px solid var(--on-border);
+  color: var(--on-gold-2) !important;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn-view-more, .btn-pill, .btn-white, .btn-orange{
+  font-family: var(--on-font-mono) !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--on-border) !important;
+  background: linear-gradient(120deg, rgba(255,45,85,0.16), rgba(139,92,246,0.16)) !important;
+  color: var(--on-gold-2) !important;
+  backdrop-filter: blur(6px);
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease !important;
+}
+.btn-view-more:hover, .btn-pill:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--on-glow-crimson);
+  background: linear-gradient(120deg, var(--on-crimson-2), var(--on-purple)) !important;
+  color: #fff !important;
+}
+
+/* pushable capsule buttons on social grid */
+.pushable .front{
+  font-family: var(--on-font-mono) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* ==========================================================================
+   CARDS / SECTIONS — glass + sigil corner ornaments
+   ========================================================================== */
+.social-box, .story-card, .privacy-container, .post-card, .elegant-card,
+.suggestion-box, .about-grid, .yt-mini-banner{
+  background: var(--on-panel) !important;
+  border: 1px solid var(--on-border) !important;
+  border-radius: var(--on-radius) !important;
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-box::before{
+  content:'';
+  position:absolute; inset:0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(242,185,87,0.5), rgba(255,45,85,0.15) 40%, rgba(139,92,246,0.4));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: .7; pointer-events:none;
+}
+
+.social-box:hover, .story-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45), var(--on-glow-gold);
+  transition: all .35s ease;
+}
+
+.join-title, .section-title{
+  font-family: var(--on-font-display) !important;
+  background: linear-gradient(90deg, var(--on-gold-2), var(--on-crimson));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.title-underline{
+  background: linear-gradient(90deg, var(--on-crimson), var(--on-gold), var(--on-purple)) !important;
+}
+
+/* section divider as a torii + sigil motif instead of a plain <hr> */
+.footer-divider{
+  border: none !important;
+  height: 34px !important;
+  margin: 0 auto !important;
+  max-width: 1100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: .75;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='34' viewBox='0 0 600 34'%3E%3Cg fill='none' stroke='%23f2b957' stroke-width='1.3' opacity='0.8'%3E%3Cline x1='0' y1='17' x2='230' y2='17'/%3E%3Cline x1='370' y1='17' x2='600' y2='17'/%3E%3Ccircle cx='300' cy='17' r='11' stroke='%23ff2d55'/%3E%3Cpath d='M285 17 L295 8 L305 17 L295 26 Z' stroke='%238b5cf6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer{ background: linear-gradient(180deg, transparent, rgba(0,0,0,0.55)) !important; }
+.footer-right .icons a:hover{ color: var(--on-gold) !important; text-shadow: var(--on-glow-gold); }
+.footer-links-bottom a:hover{ color: var(--on-crimson) !important; }
+
+/* ==========================================================================
+   MISC RESKINS
+   ========================================================================== */
+.yellow-quote{ border-left: 3px solid var(--on-crimson) !important; }
+.underline-gold{ background: linear-gradient(90deg, var(--on-gold), transparent) !important; }
+.profile-role{ color: var(--on-cyan) !important; }
+
+/* Sigil badge — small emblem used across new sections */
+.on-sigil{
+  width: 62px; height: 62px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius: 50%;
+  border: 1px solid var(--on-border);
+  background: radial-gradient(circle at 30% 30%, rgba(242,185,87,0.18), rgba(0,0,0,0));
+  box-shadow: inset 0 0 20px rgba(255,45,85,0.15);
+}
+
+/* Reveal-on-scroll utility (driven by theme.js) */
+.on-reveal{
+  opacity:0; transform: translateY(28px);
+  transition: opacity .8s ease var(--on-delay, 0ms), transform .8s ease var(--on-delay, 0ms);
+}
+.on-reveal.on-in{ opacity:1; transform: translateY(0); }
+
+/* ==========================================================================
+   AMBIENT SCROLL PROGRESS — "fuse" bar pinned to the very top of the page
+   ========================================================================== */
+.on-progress{
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 3px; z-index: 100000;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.on-progress i{
+  display: block; height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--on-crimson), var(--on-gold) 45%, var(--on-purple) 75%, var(--on-cyan));
+  box-shadow: 0 0 12px rgba(255,45,85,0.65), 0 0 22px rgba(139,92,246,0.35);
+  transition: width .12s linear;
+}
+
+/* ==========================================================================
+   TILT CARDS — used by .on-tilt (world cards, symbol tiles, etc.)
+   ========================================================================== */
+.on-tilt{
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* ==========================================================================
+   PRELOADER — shown on first paint via inline markup, hidden by theme.js
+   once the page has finished loading; reused as an "entering page"
+   transition when navigating internally.
+   ========================================================================== */
+.on-loader{
+  position: fixed; inset: 0; z-index: 999999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.15rem;
+  background:
+    radial-gradient(ellipse 700px 500px at 50% 32%, rgba(139,92,246,0.16), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 50% 78%, rgba(255,45,85,0.14), transparent 60%),
+    var(--on-void);
+  transition: opacity .55s ease, visibility .55s ease;
+}
+.on-loader.on-loader-hide{ opacity: 0; visibility: hidden; pointer-events: none; }
+
+.on-loader-core{
+  position: relative;
+  width: 96px; height: 96px;
+  display: flex; align-items: center; justify-content: center;
+}
+.on-loader-ring{
+  position: absolute; inset: -16px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--on-crimson), var(--on-gold), var(--on-purple), var(--on-cyan), var(--on-crimson));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+  filter: drop-shadow(0 0 10px rgba(255,45,85,0.5));
+  animation: on-loader-spin 1.5s linear infinite;
+}
+.on-loader-ring::after{
+  content: '';
+  position: absolute; inset: -7px;
+  border-radius: 50%;
+  border: 1px dashed rgba(242,185,87,0.35);
+  animation: on-loader-spin 6s linear infinite reverse;
+}
+.on-loader-logo{
+  width: 78px; height: 78px; border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px rgba(242,185,87,0.5), 0 0 26px rgba(255,45,85,0.5);
+  animation: on-loader-pulse 1.8s ease-in-out infinite;
+}
+.on-loader-word{
+  font-family: var(--on-font-display);
+  font-size: 1.35rem;
+  letter-spacing: .12em;
+  background: linear-gradient(90deg, var(--on-gold-2), var(--on-gold));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.on-loader-word span{
+  background: linear-gradient(90deg, var(--on-crimson), var(--on-purple));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  margin-left: .4em;
+}
+.on-loader-tag{
+  font-family: var(--on-font-mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: var(--on-text-faint);
+  min-height: 1em;
+  transition: opacity .2s ease;
+}
+.on-loader-bar{
+  width: 160px; height: 3px; border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+.on-loader-bar i{
+  display: block; width: 40%; height: 100%;
+  background: linear-gradient(90deg, transparent, var(--on-gold), var(--on-crimson), transparent);
+  animation: on-loader-shimmer 1.3s ease-in-out infinite;
+}
+@keyframes on-loader-spin{ to{ transform: rotate(360deg); } }
+@keyframes on-loader-pulse{
+  0%,100%{ transform: scale(1); filter: brightness(1); }
+  50%{ transform: scale(1.05); filter: brightness(1.15); }
+}
+@keyframes on-loader-shimmer{
+  0%{ transform: translateX(-160%); }
+  100%{ transform: translateX(340%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .on-loader-ring, .on-loader-ring::after, .on-loader-logo, .on-loader-bar i{ animation: none; }
+  .on-reveal{ transition: opacity .3s ease; transform: none; }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px){
+  .on-symbol-layer{ background-size: 300px 300px; }
+  .hero-content h1{ font-size: 2.6rem; }
+  .on-loader-core{ width: 80px; height: 80px; }
+  .on-loader-logo{ width: 64px; height: 64px; }
+  .on-loader-word{ font-size: 1.1rem; }
+}

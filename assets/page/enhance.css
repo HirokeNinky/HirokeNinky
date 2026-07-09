@@ -1,0 +1,310 @@
+/* ==========================================================================
+   HIROKE NINKY — MOBILE & BUTTON ENHANCEMENT LAYER
+   Loads AFTER theme.css. Adds:
+   1) A real mobile navigation drawer (hamburger -> off-canvas panel)
+   2) A unified "ember-glass" button system (sheen sweep + accent glow)
+   3) Extra small-screen breakpoints (tablet / phone / small phone)
+   Uses the existing Oni-Tech tokens (--on-crimson, --on-gold, --on-purple,
+   --on-cyan, --on-void, --on-panel, --on-border, --on-radius) so nothing
+   here fights the established identity.
+   ========================================================================== */
+
+:root{
+  --on-nav-w: min(320px, 84vw);
+}
+
+/* ==========================================================================
+   1. HAMBURGER TOGGLE
+   ========================================================================== */
+.nav-hamburger{
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18,10,20,0.55);
+  border: 1px solid var(--on-border, rgba(255,205,130,0.14));
+  border-radius: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1201;
+}
+.nav-hamburger:hover{ box-shadow: 0 0 18px rgba(255,45,85,0.35); }
+.nav-hamburger .bar{
+  position: absolute;
+  left: 10px;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--on-gold, #f2b957), var(--on-crimson, #ff2d55));
+  transition: transform .35s cubic-bezier(.3,.7,.4,1), opacity .25s ease, top .35s ease;
+}
+.nav-hamburger .bar:nth-child(1){ top: 14px; }
+.nav-hamburger .bar:nth-child(2){ top: 21px; }
+.nav-hamburger .bar:nth-child(3){ top: 28px; }
+.nav-hamburger.is-active .bar:nth-child(1){ top: 21px; transform: rotate(45deg); }
+.nav-hamburger.is-active .bar:nth-child(2){ opacity: 0; }
+.nav-hamburger.is-active .bar:nth-child(3){ top: 21px; transform: rotate(-45deg); }
+
+/* ==========================================================================
+   2. SCRIM (backdrop behind the drawer)
+   ========================================================================== */
+.nav-scrim{
+  position: fixed;
+  inset: 0;
+  background: rgba(4,2,7,0.6);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+  z-index: 999; /* just under .header's z-index:1000, so the hamburger
+                   and drawer (both inside .header) always stay clickable */
+}
+.nav-scrim.is-visible{ opacity: 1; pointer-events: auto; }
+
+/* ==========================================================================
+   3. RESPONSIVE NAV DRAWER
+   Kicks in earlier than 768px (900px) so tablets get it too, avoiding the
+   cramped/overflowing links row that existed before.
+   ========================================================================== */
+@media (max-width: 900px){
+  .nav-hamburger{ display: inline-flex; order: 3; }
+
+  .nav-right{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: var(--on-nav-w);
+    max-width: 100vw;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 6.5rem 1.5rem 2rem;
+    background: linear-gradient(160deg, rgba(9,5,14,0.98), rgba(14,7,18,0.98));
+    border-left: 1px solid var(--on-border, rgba(255,205,130,0.14));
+    box-shadow: -20px 0 60px rgba(0,0,0,0.55);
+    transform: translateX(100%);
+    transition: transform .4s cubic-bezier(.22,.9,.32,1);
+    overflow-y: auto;
+    z-index: 1200;
+  }
+  .nav-right.is-open{ transform: translateX(0); }
+
+  .nav-right::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--on-gold, #f2b957), transparent);
+    opacity: .5;
+  }
+
+  .nav-links{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: .7rem;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .nav-links li{ width: 100%; }
+
+  .nav-links a{
+    width: 100%;
+    justify-content: flex-start;
+    padding: .85rem 1.1rem;
+    font-size: .8rem;
+    white-space: normal;
+    transform: none !important;
+  }
+
+  .nav-links a:hover{ transform: translateX(4px) !important; }
+
+  .nav-controls{
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--on-border, rgba(255,205,130,0.14));
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  body.nav-locked{ overflow: hidden; }
+}
+
+/* Restore desktop behaviour above breakpoint, overriding the older
+   horizontal-scroll rule from styles.css */
+@media (min-width: 901px){
+  .nav-right{ transform: none !important; }
+}
+
+/* ==========================================================================
+   4. BUTTON SYSTEM — "Ember-Glass"
+   One shared move (diagonal sheen sweep + accent-colored glow) applied to
+   every interactive control across the site, so the whole button language
+   feels like one deliberate system instead of five different tutorials.
+   ========================================================================== */
+.capsule-button,
+.btn-view-more,
+.hero-buttons .btn,
+.button-90,
+.btn-pill,
+.btn-visit,
+.duality-btn,
+.yt-sub-btn,
+.nav-links a,
+.lang-btn,
+.theme-toggle{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.capsule-button::before,
+.btn-view-more::before,
+.hero-buttons .btn::before,
+.button-90::before,
+.btn-pill::before,
+.btn-visit::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-18deg);
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.capsule-button:hover::before,
+.btn-view-more:hover::before,
+.hero-buttons .btn:hover::before,
+.button-90:hover::before,
+.btn-pill:hover::before,
+.btn-visit:hover::before{
+  opacity: .55;
+  animation: on-sheen-sweep .85s ease forwards;
+}
+
+@keyframes on-sheen-sweep{
+  from{ left: -60%; }
+  to{ left: 130%; }
+}
+
+/* Accent-colored glow ring, keyed off each card's own --accent-color so every
+   platform button (YouTube red, Discord blurple, X black, etc.) keeps its
+   own identity while gaining the same physical behaviour. */
+.capsule-button{
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.4),
+    0 0 0 0 var(--accent-color, var(--on-crimson));
+  transition:
+    transform .3s cubic-bezier(.175,.885,.32,1.275),
+    box-shadow .35s ease,
+    border-color .35s ease,
+    filter .3s ease;
+}
+.capsule-button:hover{
+  border-color: var(--accent-color, var(--on-gold)) !important;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    0 0 22px -2px var(--accent-color, var(--on-crimson));
+}
+.capsule-button:active{
+  transform: scale(0.94) translateY(0) !important;
+}
+
+.btn-view-more:hover,
+.hero-buttons .btn:hover,
+.button-90:hover,
+.btn-pill:hover{
+  filter: brightness(1.08);
+}
+
+/* Press feedback everywhere, including touch (no hover state needed) */
+.capsule-button:active,
+.btn-view-more:active,
+.hero-buttons .btn:active,
+.button-90:active,
+.btn-pill:active,
+.btn-visit:active,
+.duality-btn:active,
+.nav-links a:active{
+  transform: scale(0.96);
+  transition: transform .08s ease;
+}
+
+/* Comfortable tap targets on touch devices */
+@media (pointer: coarse){
+  .capsule-button, .btn-view-more, .hero-buttons .btn, .button-90,
+  .btn-pill, .btn-visit, .lang-btn, .theme-toggle, .nav-hamburger,
+  .nav-links a, .footer-right .icons a{
+    min-height: 44px;
+  }
+}
+
+/* Focus-visible ring for keyboard users, styled in the theme's palette */
+.capsule-button:focus-visible,
+.btn-view-more:focus-visible,
+.hero-buttons .btn:focus-visible,
+.button-90:focus-visible,
+.btn-pill:focus-visible,
+.btn-visit:focus-visible,
+.nav-links a:focus-visible,
+.nav-hamburger:focus-visible,
+.lang-btn:focus-visible,
+.theme-toggle:focus-visible{
+  outline: 2px solid var(--on-gold, #f2b957);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   5. EXTRA SMALL-SCREEN BREAKPOINTS
+   (styles.css only really tunes down to 768px; these fill the gap for
+   actual phones and small phones so nothing overflows or crowds together)
+   ========================================================================== */
+@media (max-width: 480px){
+  .nav-container{ padding: .6rem .85rem; }
+  .logo span{ font-size: 1rem; }
+
+  .hero-content h1{ font-size: 1.7rem; padding: 0 6px; }
+  .on-eyebrow{ font-size: .62rem; padding: .3rem .7rem; letter-spacing: .2em; }
+  .typing-text{ font-size: 1.1rem; }
+  .hero-buttons{ gap: .6rem; }
+  .hero-buttons .btn, .btn-view-more{
+    width: 100%;
+    justify-content: center;
+    font-size: .85rem;
+    padding: .8rem 1rem;
+  }
+
+  .join-title{ font-size: 1.4rem; letter-spacing: 1px; }
+  .join-subtitle{ font-size: .8rem; }
+
+  .social-grid{ grid-template-columns: 1fr; }
+  .social-box{ padding: 1.5rem 1.1rem; }
+  .capsule-button{ width: 100%; justify-content: center; padding: 10px 20px; }
+
+  .footer-bottom{ padding: 1.5rem 1rem; }
+  .footer-copy{ white-space: normal; }
+}
+
+@media (max-width: 360px){
+  .hero-content h1{ font-size: 1.45rem; }
+  .on-loader-word{ font-size: 1rem; }
+  .logo-image{ width: 28px; height: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .capsule-button::before, .btn-view-more::before, .hero-buttons .btn::before,
+  .button-90::before, .btn-pill::before, .btn-visit::before{ display: none; }
+  .nav-right{ transition: none; }
+}
