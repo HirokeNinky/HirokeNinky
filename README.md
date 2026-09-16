@@ -1,7 +1,7 @@
 <div align="center">
 
-<a href="https://hiroke.starstrix.my.id/">
-  <img src="https://hiroke.starstrix.my.id/assets/hiroke/banner-hiroke.png" alt="Hiroke Ninky Banner" width="55%">
+<a href="https://hiroke.my.id/">
+  <img src="https://hiroke.my.id/assets/hiroke/banner-hiroke.png" alt="Hiroke Ninky Banner" width="55%">
 </a>
 
 <br>
@@ -14,7 +14,7 @@
 
 <br>
 
-[![Website](https://img.shields.io/badge/PORTFOLIO-000000?style=for-the-badge&logo=firefox&logoColor=B3121C)](https://hiroke.starstrix.my.id/)
+[![Website](https://img.shields.io/badge/PORTFOLIO-000000?style=for-the-badge&logo=firefox&logoColor=B3121C)](https://hiroke..my.id/)
 [![Discord](https://img.shields.io/badge/DISCORD-000000?style=for-the-badge&logo=discord&logoColor=B3121C)](https://discord.gg/WkAjbEZZsw)
 [![Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=B3121C)](https://x.com/Hiroke_Ninky)
 [![YouTube](https://img.shields.io/youtube/channel/subscribers/UCelLi78SZizvP4C9tN6giUg?style=for-the-badge&logo=youtube&logoColor=red)](https://youtube.com/@hiroke_ninky)
