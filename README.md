@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://hiroke.my.id/">
-  <img src="https://hiroke.my.id/assets/hiroke/logo-hiroke.png" alt="Hiroke Ninky Banner" width="55%">
+  <img src="https://hiroke.my.id/assets/hiroke/hiroke.png" alt="Hiroke Ninky Banner" width="55%">
 </a>
 
 <br>
