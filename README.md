@@ -76,10 +76,6 @@
   <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=HirokeNinky&theme=github_dark" width="49%">
 </p>
 
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=HirokeNinky&theme=react-dark&hide_border=true&color=B3121C&line=B3121C&point=FFFFFF&area=true&area_color=B3121C" width="90%" />
-</p>
-
 <br>
 
 ## ⭐ Teams
