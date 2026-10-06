@@ -94,7 +94,7 @@ a.k.a Muhammad Arief Rachman
 <div align="center">
 
 [![Support](https://img.shields.io/badge/Support%20Me-bagibagi.co-B3121C?style=for-the-badge&logo=kofi&logoColor=white)](https://bagibagi.co/HirokeNinky)
-[![Join Discord](https://img.shields.io/badge/Join%20My%20Server-Discord-B3121C?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/WkAjbEZZsw)
+[![Join Discord](https://img.shields.io/badge/Join%20My%20Server-Discord-B3121C?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UZbzBQXMjs)
 
 <br>
 
